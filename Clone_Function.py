@@ -14,7 +14,6 @@ def creat_folder(log_path,path): #function to create folder and register at logf
     print(f"{path} Was created")  
      
     with open(f"{log_path}\\logfile.txt", "a") as log: #Register folder creation at logfile
-     
         log.write(f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} {path} was created\n")
         log.close()
         return True 
@@ -34,8 +33,10 @@ def main(source_folder,destination_folder,synchronization_interval : int,log_pat
        return
 
  if not os.path.exists(source_folder):   # Check if the source path exist
-   print("This source folder does not exist. Please insert a valid foler next time \n")
-   return
+  get_input = input("The path for  source folder does not exist type Y to create a new one ?")
+  if get_input == "y" or get_input == "Y":   #Create a new logfile path 
+     if not creat_folder(log_path,source_folder):
+       return
  
  if len(os.listdir(source_folder)) == 0:   # Check if the source path have files
    print("###WARNING### this folder is empty\n")
