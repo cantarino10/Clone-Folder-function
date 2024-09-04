@@ -11,10 +11,10 @@ def creat_folder(log_path,path): #function to create folder and register at logf
        print("Invalid Path destination path. Try again\n") #Return if the path is valid
        return False
   else:
-    print(f"This folder does not exist.{path} Was created")  
+    print(f"{path} Was created")  
      
     with open(f"{log_path}\\logfile.txt", "a") as log: #Register folder creation at logfile
-        print(log_path)
+     
         log.write(f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} {path} was created\n")
         log.close()
         return True 
