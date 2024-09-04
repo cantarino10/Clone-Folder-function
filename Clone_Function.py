@@ -95,7 +95,7 @@ def main(source_folder,destination_folder,synchronization_interval : int,log_pat
         except:
              errors = True
              text = (f"#####WARNING Could not copy ({file})") #Warning in case of cant copy for any reason
-             print(f"all files Have been sucessfully cloned logfile at {log_path}\\logfile.txt.\nNext copy at {backuptime.strftime("%Y-%m-%d %H:%M:%S")}\n")   
+            
         else:   
              text = (f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} {file} Has been cloned to : {destination_folder}" )  #Notify if the file was copied
       else:
