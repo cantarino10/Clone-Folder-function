@@ -71,7 +71,7 @@ def main(source_folder,destination_folder,synchronization_interval : int,log_pat
     for files in os.listdir(destination_folder):
      file =  destination_folder + "/" + files   #got path of files
 
-     if not files in os.listdir(source_folder):
+     if not files in os.listdir(source_folder): #check if there is the same file at origin past, and delete if it\s not
        try: 
          os.remove(destination_folder + "\\" +files)    #clean the folder to receive new files 
        except:
