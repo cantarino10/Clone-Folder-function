@@ -71,12 +71,12 @@ def main(source_folder,destination_folder,synchronization_interval : int,log_pat
 
      if not files in os.listdir(source_folder):
        try: 
-        os.remove(files)    #clean the folder to receive new files 
+         os.remove(destination_folder + "\\" +files)    #clean the folder to receive new files 
        except:
           errors = True
           remove_text = f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} ###WARNING### {file} could have not been removed" #tell if file wasnt remove
        else:
-          remove_text = f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} {file} have been sucessfully removed"  #tell if it was
+         remove_text = f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} {file} have been sucessfully removed"  #tell if it was
     
        print(remove_text)              #print on the console and logfile    
        log.write(f"remove_text \n")
