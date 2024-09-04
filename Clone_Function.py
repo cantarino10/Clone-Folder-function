@@ -59,6 +59,7 @@ def main(source_folder,destination_folder,synchronization_interval : int,log_pat
  while True:
   
   if backuptime <= datetime.now() : #check if destination or logfile folder wasnt deleted by acident (it already happened with me)
+   
    if not os.path.exists(log_path): 
      if not creat_folder(log_path,log_path):
        return
@@ -82,8 +83,11 @@ def main(source_folder,destination_folder,synchronization_interval : int,log_pat
        print(remove_text)              #print on the console and logfile    
        log.write(f"remove_text \n")
   
-       
-    for file in os.listdir(source_folder):
+    if len(os.listdir(source_folder)) == 0:
+     text = print("The source directory is empty there is no files to copy") #check if stil have files in source directory
+     errors = False
+    else :      
+     for file in os.listdir(source_folder):
       try:
         overwrite = not cmp((source_folder + "\\" + file),(destination_folder + "\\" + file))  #check if this file already exist and if it does, check if it is unchagend to avoid more process would be useful to avoide wast of time on larger files
     
